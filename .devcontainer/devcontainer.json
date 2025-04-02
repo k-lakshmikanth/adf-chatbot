@@ -9,6 +9,17 @@
 		"ghcr.io/devcontainers/features/python:1": {
 			"version": "latest"
 		},
-		"ghcr.io/prulloac/devcontainer-features/ollama:1": {}
+		"ghcr.io/prulloac/devcontainer-features/ollama:1": {
+			"pull":"llama3.2,nomic-embed-text"
+		}
+	},
+	"postCreateCommand": {
+		"python dependencies" : "pip install -r requirements.txt",
+		"agentic-ui" : "npx create-agent-ui@latest"
+	},
+	"postStartCommand": {
+		"ollama": "ollama serve",
+		"agentic-ui": "cd agentic-ui && npm start",
+		"agents-api": "clear && python agents.py"
 	}
 }
