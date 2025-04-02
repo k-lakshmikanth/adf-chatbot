@@ -15,7 +15,8 @@
 	},
 	"postCreateCommand": {
 		"python dependencies" : "pip install -r requirements.txt",
-		"agentic-ui" : "npx create-agent-ui@latest"
+		"agentic-ui" : "npx create-agent-ui@latest",
+		"create env" : "echo $ENV > .env",
 	},
 	"postStartCommand": {
 		"ollama": "ollama serve",
