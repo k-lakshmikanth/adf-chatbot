@@ -7,18 +7,18 @@ from agno.storage.yaml import YamlStorage
 from agno.playground import Playground, serve_playground_app
 
 load_dotenv()
+os.environ.pop("ENV", None)
 
 agent = Agent(
-    name="Personal Assistant",
+    name="Azure Data Factory Assistant",
     description="An assistant to help me with Azure Data Factory and related tasks.",
     knowledge=knowledge_base,
-    model=Ollama("llama3.2:latest"),
+    model=Ollama("qwen2.5:14b"),
     storage=YamlStorage(dir_path="sessions/agent_sessions_yaml"),
     markdown=True,
     add_history_to_messages=True,
     search_knowledge=True,
 )
-
 
 app = Playground(agents=[agent]).get_app()
 

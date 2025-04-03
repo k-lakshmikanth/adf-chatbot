@@ -11,16 +11,15 @@
 		},
 		"ghcr.io/prulloac/devcontainer-features/ollama:1": {
 			"pull":"llama3.2,nomic-embed-text"
-		}
+		},
+		"ghcr.io/devcontainers/features/node:1": {}
+		
 	},
 	"postCreateCommand": {
-		"python dependencies" : "pip install -r requirements.txt",
-		"agentic-ui" : "npx create-agent-ui@latest",
+		"python dependency": "pip install -r ../requirements.txt",
 		"create env" : "echo $ENV > .env"
 	},
 	"postStartCommand": {
-		"ollama": "ollama serve",
-		"agentic-ui": "cd agentic-ui && npm start",
-		"agents-api": "clear && python agents.py"
+		"ollama": "ollama serve"
 	}
 }
